@@ -1,0 +1,58 @@
+{% extends "account/base_auth.html" %}
+
+{% load i18n %}
+{% load bootstrapcss %}
+
+{% block title %}{% trans "Login In" %}{% endblock %}
+
+{% block sub_content %}
+<div class="login-panel panel panel-default center-block">
+  <div class="panel-body">
+    <div class="login-title text-center">{% trans 'Login In' %}</div>
+    <div class="form-group">
+      <a class="btn btn-block btn-github" href="/accounts/github/login/?process=login" role="button">
+        <i class="fa fa-github" aria-hidden="true"></i>
+        {% trans " Sign in with GitHub" %}
+      </a>
+    </div>
+    <div class="form-group">
+      <div class="text-separator">
+        <div class="text">{% trans 'or' %}</div>
+        <hr>
+      </div>
+    </div>
+    <form id="login_form" method="post" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      <div class="form-group {% if form.login.errors %}has-error{% endif %}">
+        {{ form.login | addclass:'form-control' }}
+        {% if form.login.errors %}<span class="help-block">{{ form.login.errors }}</span>{% endif %}
+      </div>
+      <div class="form-group {% if form.password.errors %}has-error{% endif %}">
+        {{ form.password | addclass:'form-control' }}
+        {% if form.password.errors %}<span class="help-block">{{ form.password.errors }}</span>{% endif %}
+      </div>
+      <div class="checkbox {% if form.remember.errors %}has-error{% endif %}">
+        <label>{{ form.remember }}{% trans " Remember Me" %}</label>
+        {% if form.remember.errors %}<span class="help-block">{{ form.remember.errors }}</span>{% endif %}
+      </div>
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      {% if form.non_field_errors %}
+      <div class="form-group login-error alert alert-danger" role="alert">
+        {{ form.non_field_errors }}
+      </div>
+      {% endif %}
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">{% trans "Log In" %}</button>
+      </div>
+      <div class="form-group">
+        <p class="text-center"><a href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+<p class="text-center minor-text">
+  {% blocktrans %}Don't have an account? <a href="{{ signup_url }}">Sign Up</a>.{% endblocktrans %}
+</p>
+{% endblock %}

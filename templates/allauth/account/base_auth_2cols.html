@@ -1,0 +1,16 @@
+{% extends "account/base_auth.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block sub_content %}
+<div class="row">
+	<div id="main" class="col-md-9">
+		{% block left_side %}
+		{% endblock %}
+	</div>
+	<div id="sidebar" class="col-md-3">
+		{% block right_side %}
+		{% endblock %}
+	</div>
+</div>
+{% endblock %}

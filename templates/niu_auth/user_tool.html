@@ -1,0 +1,15 @@
+{% extends "era_auth/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load timeago %}
+
+{% block left_side %}
+{% include 'widget/w_profile_nav.html' with active_tool=True user=see_user %}
+<div class="panel panel-default">
+	{% include 'widget/w_tool_list.html' with tools=tools %}
+</div>
+{% endblock %}
+
+{% block right_side %}
+{% include 'widget/w_user_panel.html' with user=see_user %}
+{% endblock %}

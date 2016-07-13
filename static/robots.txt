@@ -1,0 +1,5 @@
+User-agent: *
+
+Disallow: /topics/*
+Disallow: /accounts/
+Disallow: /review/

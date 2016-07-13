@@ -1,1 +1,7 @@
 *.pyc
+niuforum.sqlite3
+
+!niuauth/migrations/__init__.py
+niuauth/migrations/*.py
+!forum/migrations/__init__.py
+forum/migrations/*.py

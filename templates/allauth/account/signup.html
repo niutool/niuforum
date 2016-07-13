@@ -1,0 +1,49 @@
+{% extends "account/base_auth.html" %}
+{% load i18n %}
+{% load bootstrapcss %}
+
+{% block title %}{% trans "Signup" %}{% endblock %}
+
+{% block sub_content %}
+<div class="login-panel panel panel-default center-block">
+	<div class="panel-body">
+		<div class="login-title text-center">{% trans 'Sign Up' %}</div>
+		<form id="signup_form" method="post" action="{% url 'account_signup' %}">
+			{% csrf_token %}
+			<div class="form-group {% if form.username.errors %}has-error{% endif %}">
+				{{ form.username | addclass:'form-control' }}
+				{% if form.username.errors %}<span class="help-block">{{ form.username.errors }}</span>{% endif %}
+			</div>
+			<div class="form-group {% if form.email.errors %}has-error{% endif %}">
+				{{ form.email | addclass:'form-control' }}
+				{% if form.email.errors %}<span class="help-block">{{ form.email.errors }}</span>{% endif %}
+			</div>
+			<div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+				{{ form.password1 | addclass:'form-control' }}
+				{% if form.password1.errors %}<span class="help-block">{{ form.password1.errors }}</span>{% endif %}
+			</div>
+			<div class="form-group {% if form.password2.errors %}has-error{% endif %}">
+				{{ form.password2 | addclass:'form-control' }}
+				{% if form.password2.errors %}<span class="help-block">{{ form.password2.errors }}</span>{% endif %}
+			</div>
+			{% if redirect_field_value %}
+			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+			{% endif %}
+			{% if form.non_field_errors %}
+			<div class="form-group login-error alert alert-danger" role="alert">
+				{{ form.non_field_errors }}
+			</div>
+			{% endif %}
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-block">{% trans "Sign Up" %}</button>
+			</div>
+			<div class="form-group">
+				<p class="text-center minor-text">{% blocktrans %}By signing up, you agree to the <a href="#">Terms of Service</a>{% endblocktrans %}</p>
+			</div>
+		</form>
+	</div>
+</div>
+<p class="text-center minor-text">
+	{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Log In</a>.{% endblocktrans %}
+</p>
+{% endblock %}

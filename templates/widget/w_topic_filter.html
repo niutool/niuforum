@@ -1,0 +1,9 @@
+{% load i18n %}
+
+<div class="list-inline topic-filter">
+	<li>{% trans 'sort:' %}</li>
+	<li {% if order == 'default' %} class="active"{% endif %}><a class="niu-link" href="{% if nodeid %}{% url view_page nodeid 'default' %}{% else %}{% url view_page 'default' %}{% endif %}"><i class="fa fa-bars fa-fw" aria-hidden="true"></i>&nbsp;{% trans 'default' %}</a></li>
+	<li {% if order == 'star' %} class="active"{% endif %}><a class="niu-link" href="{% if nodeid %}{% url view_page nodeid 'star' %}{% else %}{% url view_page 'star' %}{% endif %}"><i class="fa fa-thumbs-o-up fa-fw" aria-hidden="true"></i>&nbsp;{% trans 'star' %}</a></li>
+	<li {% if order == 'reply' %} class="active"{% endif %}><a class="niu-link" href="{% if nodeid %}{% url view_page nodeid 'reply' %}{% else %}{% url view_page 'reply' %}{% endif %}"><i class="fa fa-comment-o fa-fw" aria-hidden="true"></i>&nbsp;{% trans 'recent reply' %}</a></li>
+	<li {% if order == 'latest' %} class="active"{% endif %}><a class="niu-link" href="{% if nodeid %}{% url view_page nodeid 'latest' %}{% else %}{% url view_page 'latest' %}{% endif %}"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;{% trans 'latest post' %}</a></li>
+</div>

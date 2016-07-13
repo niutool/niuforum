@@ -1,0 +1,6 @@
+{% load i18n %}
+<ul class="nav nav-tabs user-tab">
+	<li role="presentation" {% if active_reply %} class="active" {% endif %}><a href="{% url 'user_profile' user_id=user.username %}">{% trans 'replies' %}</a></li>
+	<li role="presentation" {% if active_topic %} class="active" {% endif %}><a href="{% url 'user_topic' user_id=user.username %}">{% trans 'topics' %}</a></li>
+	<li role="presentation" {% if active_tool %} class="active" {% endif %}><a href="{% url 'user_tool' user_id=user.username %}">{% trans 'tools' %}</a></li>
+</ul>

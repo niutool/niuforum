@@ -1,0 +1,13 @@
+{% extends "account/base_auth.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block sub_content %}
+<div class="login-panel panel panel-default center-block">
+	<div class="panel-body">
+		<div class="login-title text-center">{% trans 'Verify Your E-mail Address' %}</div>
+		<p class="minor-text">{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+	</div>
+</div>
+{% endblock %}

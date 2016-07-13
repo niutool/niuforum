@@ -1,0 +1,47 @@
+{% extends "forum/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block description %}{{ node.description }}{% endblock %}
+{% block title %}{{ node.name }}{% endblock %}
+
+{% block left_side %}
+<div class="panel panel-default">
+	<div class="panel-body clearfix">
+		<div class="node-icon pull-left">
+			{% if node.icon_m %}
+			<img alt="icon" class="icon-m" src="{{ node.icon_m.url }}">
+			{% else %}
+			<img alt="icon" class="icon-m" src="{% static 'image/niutool.svg' %}">
+			{% endif %}
+		</div>
+		<div class="node-info">
+			<div class="node-title">
+				{{ node.name }}
+			</div>
+			<div class="node-summary">{{ node.description }}</div>
+		</div>
+	</div>
+	<div class="node-bar clearfix">
+		<div class="pull-right">
+			{% include 'widget/w_topic_filter.html' with order=order view_page='node_view' nodeid=node.id %}
+		</div>
+		<div class="list-inline">
+			<li>
+				<a id="watch" {% if watching %} class="niu-link active" data-watch="true"{% else %} class="niu-link" data-watch="false"{% endif %} href="{% url 'watch_node_view' node.id %}">
+					<i class="fa fa-eye fa-fw" aria-hidden="true"></i>&nbsp;{% trans 'Watch' %}
+				</a>
+			</li>
+		</div>
+	</div>
+	{% include 'widget/w_topic_list.html' %}
+</div>
+{% endblock %}
+
+{% block tail_js %}
+<script type="text/javascript">
+	$(function() {
+		$('#watch').on('click', watchNode);
+	});
+</script>
+{% endblock %}

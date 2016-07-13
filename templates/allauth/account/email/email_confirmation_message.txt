@@ -1,0 +1,16 @@
+{% load account %}
+{% user_display user as user_display %}
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Hi {{ user_display }},
+
+Thanks for joining the {{ site_name }}!
+Click the following link to confirm your email and connect it to your account:
+{{ activate_url }}
+
+If the above link is not clickable, try copying and pasting it into the address bar of your web browser.
+
+{% endblocktrans %}
+{% endautoescape %}
+

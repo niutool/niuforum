@@ -1,0 +1,18 @@
+{% extends "bases/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block content %}
+<div class="container main-container">
+	<div class="row">
+		<div id="main" class="col-md-9">
+			{% block left_side %}
+			{% endblock %}
+		</div>
+		<div id="sidebar" class="col-md-3">
+			{% block right_side %}
+			{% endblock %}
+		</div>
+	</div>
+</div>
+{% endblock %}

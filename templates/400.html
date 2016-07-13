@@ -1,0 +1,16 @@
+{% extends "bases/base.html" %}
+{% load i18n %}
+
+{% block title %}404{% endblock %}
+
+{% block content %}
+<div class="container main-container">
+	<div class="center-block error-block">
+		<div class="error-code text-center">400</div>
+		<div class="error-msg text-center">{% trans 'SORRY - Bad request!' %}</div>
+		<p class="text-center">
+			The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.
+		</p>
+	</div>
+</div>
+{% endblock %}

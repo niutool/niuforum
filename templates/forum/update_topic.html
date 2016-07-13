@@ -1,0 +1,52 @@
+{% extends "forum/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load bootstrapcss %}
+
+{% block title %}{% trans 'modify topic' %}{% endblock %}
+
+{% block left_side %}
+<div class="panel panel-default">
+	<div class="panel-heading">
+		{% trans 'modify topic' %}
+	</div>
+	<div class="panel-body">
+		<form action="{% url 'update_topic_view' topic_id %}" method="post">
+			{% if form.non_field_errors or form.title.errors or form.content.errors or form.node.errors %}
+			<div class="alert alert-danger" role="alert">
+				<div>{{ form.non_field_errors }}</div>
+				<div>{{ form.title.errors }}</div>
+				<div>{{ form.content.errors }}</div>
+				<div>{{ form.node.errors }}</div>
+			</div>
+			{% endif %}
+			{% csrf_token %}
+			<div class="form-group">
+				{{ form.title | addclass:'form-control' }}
+			</div>
+			<div class="form-group">
+				{% include 'widget/w_md_editor.html' with textarea=form.content %}
+			</div>
+			<div class="form-group">
+				{{ form.node | addclass:'form-control' }}
+			</div>
+			<button type="submit" class="btn btn-primary pull-right">Submit</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block right_side %}
+{% include 'widget/w_menu_panel.html' with create_topic='create_topic_view' node_id=node_id %}
+
+{% include 'widget/w_md_panel.html' %}
+{% endblock %}
+
+{% block tail_js %}
+<script type="text/javascript">
+$(function() {
+	autosize($('textarea'));
+	addEditorAction();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "era_auth/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load timeago %}
+
+{% block left_side %}
+{% include 'widget/w_profile_nav.html' with active_topic=True user=see_user %}
+<div class="panel panel-default">
+	<ul class="list-group">
+		{% if topics %}
+		{% for t in topics %}
+		<li class="list-group-item clearfix">
+			<div class="topic-title">
+				<a href="{% url 'topic_view' topic_id=t.id %}">{{ t.title }}</a>
+			</div>
+			<div class="split-info">
+				<span><a class="node-tag" href="{% url 'node_view' t.node.id %}">{{ t.node.name }}</a></span>
+				<span><i class="fa fa-comment-o fa-fw" aria-hidden="true"></i>&nbsp;{{ t.reply_count }}</span>
+				<span><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;{{ t.date_created | naturaltime }}</span>
+			</div>
+		</li>
+		{% endfor %}
+		{% else %}
+		<li class="list-group-item">
+			{% trans 'no topics' %}
+		</li>
+		{% endif %}
+	</ul>
+
+	{% if topics.has_other_pages %}
+	<div class="topic-li-footer panel-body clearfix">
+		<ul class="pagination pull-right">
+			{% if topics.has_previous %}
+			<li><a href="?page={{ topics.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+			{% else %}
+			<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+			{% endif %}
+
+			{% for page in page_list %}
+			{% if page == topics.number %}
+			<li class="active"><a href="">{{ page }}</a></li>
+			{% else %}
+			<li><a href="?page={{ page }}">{{ page }}</a></li>
+			{% endif %}
+			{% endfor %}
+
+			{% if topics.has_next %}
+			<li><a href="?page={{ topics.next_page_number }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+			{% else %}
+			<li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+			{% endif %}
+		</ul>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}
+
+{% block right_side %}
+{% include 'widget/w_user_panel.html' with user=see_user %}
+{% endblock %}

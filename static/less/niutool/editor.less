@@ -1,0 +1,66 @@
+@md-height: 150px;
+
+.md-editor {
+	background-color: @panel-bg;
+	border: 1px solid @panel-default-border;
+	border-radius: @panel-border-radius;
+	
+	@color: @input-border-focus;
+	@color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+	&.active {
+		border-color: @color;
+		outline: 0;
+		.box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @{color-rgba}");
+	}
+	.md-header {
+		color: @gray-dark;
+		background-color: @panel-default-heading-bg;
+		border-color: @panel-default-border;
+		padding: 5px 10px 0 10px;
+		border-bottom: 1px solid @panel-default-border;
+		.border-top-radius((@panel-border-radius - 1));
+		.btn-icon {
+			background: transparent;
+			outline: 0;
+			&:hover {
+				outline: 0;
+				opacity: 0.6;
+			}
+		}
+		#tab-toolbar {
+			visibility: hidden;
+		}
+	}
+}
+.md-nav-tabs {
+	border-bottom: none;
+	> li {
+		> a {
+			padding: 5px 10px;
+			color: @gray-light;
+			&:hover,
+			&:focus {
+				background-color: transparent;
+				border-color: transparent;
+				color: lighten(@gray-light, 10%)
+			}
+		}
+	}
+}
+.tab-content {
+	textarea {
+		//height: @md-height;
+		min-height: @md-height;
+		max-height: 500px;
+		padding: 10px 12px;
+		outline: 0;
+		display: block;
+		width: 100%;
+		border: none;
+		border-radius: 3px;
+	}
+	.preview-panel {
+		min-height: @md-height;
+		padding: 10px 12px;
+	}
+}

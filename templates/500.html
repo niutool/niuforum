@@ -1,0 +1,16 @@
+{% extends "bases/base.html" %}
+{% load i18n %}
+
+{% block title %}404{% endblock %}
+
+{% block content %}
+<div class="container main-container">
+	<div class="center-block error-block">
+		<div class="error-code text-center">500</div>
+		<div class="error-msg text-center">{% trans 'SORRY - Internal Server Error!' %}</div>
+		<p class="text-center">
+			An internal server error occurred, please try again later.
+		</p>
+	</div>
+</div>
+{% endblock %}

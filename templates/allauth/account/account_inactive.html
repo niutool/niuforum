@@ -1,0 +1,14 @@
+{% extends "account/base_auth.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Account Inactive" %}{% endblock %}
+
+{% block sub_content %}
+<div class="login-panel panel panel-default center-block">
+	<div class="panel-body">
+		<div class="login-title text-center">{% trans 'Account Inactive' %}</div>
+		<p class="minor-text">{% trans "This account is inactive." %}</p>
+	</div>
+</div>
+{% endblock %}

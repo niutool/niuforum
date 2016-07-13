@@ -1,0 +1,16 @@
+{% extends "bases/base.html" %}
+{% load i18n %}
+
+{% block title %}404{% endblock %}
+
+{% block content %}
+<div class="container main-container">
+	<div class="center-block error-block">
+		<div class="error-code text-center">403</div>
+		<div class="error-msg text-center">{% trans 'SORRY - Forbidden!' %}</div>
+		<p class="text-center">
+			Forbidden: You don't have permission to access this page on this server.
+		</p>
+	</div>
+</div>
+{% endblock %}

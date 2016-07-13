@@ -1,0 +1,7 @@
+{% extends "bases/base_2cols.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block right_side %}
+{% include 'widget/w_user_panel.html' with user=request.user %}
+{% endblock %}

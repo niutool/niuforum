@@ -1,0 +1,73 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load timeago %}
+
+{% if topics %}
+<ul class="list-group">
+	{% for t in topics %}
+	<li class="list-group-item clearfix">
+		<div class="topic-reply pull-right">
+			<a class="reply-count" href="{% url 'topic_view' topic_id=t.id %}#reply{{ t.reply_count }}">
+				{{ t.reply_count }}
+			</a>
+		</div>
+		<div class="topic-author pull-left">
+			<a href="{% url 'user_profile' user_id=t.author.username %}">
+				{% if t.author.profile.avatar %}
+				<img alt="avatar" class="avatar-m" src="{{ t.author.profile.avatar.avatar_m.url }}">
+				{% else %}
+				<img alt="avatar" class="avatar-m" src="{% static 'image/niuren.svg' %}">
+				{% endif %}
+			</a>
+		</div>
+		<div class="topic-li-title">
+			<div class="title">
+				<a href="{% url 'topic_view' topic_id=t.id %}#reply{{ t.reply_count }}">{{ t.title }}</a>
+			</div>
+			<div class="pub-info split-info">
+				<span><a class="node-tag" href="{% url 'node_view' t.node.id %}">{{ t.node.name }}</a></span>
+				<span>
+					<a class="user niu-link" href="{% url 'user_profile' user_id=t.author.username %}">{{ t.author.username }}</a>
+					{% trans " posted " %}{{ t.date_created | naturaltime }}
+				</span>
+				{% if t.last_replied %}
+				<span>{% trans "last replied " %}{{ t.last_replied | naturaltime }}</span>
+				{% endif %}
+			</div>
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+{% else %}
+<ul class="list-group">
+	<li class="topic-item list-group-item">
+		{% trans 'No topics were found here!' %}
+	</li>
+</ul>
+{% endif %}
+
+{% if topics.has_other_pages %}
+<div class="topic-li-footer panel-body clearfix">
+	<ul class="pagination pull-right">
+		{% if topics.has_previous %}
+		<li><a href="?page={{ topics.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+		{% else %}
+		<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+		{% endif %}
+
+		{% for page in page_list %}
+		{% if page == topics.number %}
+		<li class="active"><a href="">{{ page }}</a></li>
+		{% else %}
+		<li><a href="?page={{ page }}">{{ page }}</a></li>
+		{% endif %}
+		{% endfor %}
+
+		{% if topics.has_next %}
+		<li><a href="?page={{ topics.next_page_number }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+		{% else %}
+		<li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+		{% endif %}
+	</ul>
+</div>
+{% endif %}

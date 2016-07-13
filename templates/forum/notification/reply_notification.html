@@ -1,0 +1,6 @@
+{% load i18n %}
+{% url 'user_profile' user_id=replier.username as repiler_url %}
+{% url 'topic_view' topic_id=topic.id as topic_url %}
+{% blocktrans with replier_name=replier.username topic_title=topic.title reply_count=topic.reply_count %}
+<a class="niu-link" href="{{ repiler_url }}">{{ replier_name }}</a> mentioned you in <a href="{{ topic_url }}">{{ topic_title }}</a> comment #{{ reply_count }}
+{% endblocktrans %}

@@ -1,0 +1,7 @@
+{% load i18n %}
+<div class="menu-panel">
+	<a role="button" href="{% if node_id %}{% url create_topic node_id %}{% else %}{% url create_topic %}{% endif %}" class="btn btn-add-topic">
+		<i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+		&nbsp;{% trans 'New Topic' %}
+	</a>
+</div>

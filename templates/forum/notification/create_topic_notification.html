@@ -1,0 +1,6 @@
+{% load i18n %}
+{% url 'user_profile' user_id=topic.author.username as author_url %}
+{% url 'topic_view' topic_id=topic.id as topic_url %}
+{% blocktrans with author_name=topic.author topic_title=topic.title %}
+<a class="niu-link" href="{{ author_url }}">{{ author_name }}</a> mentioned you in <a href="{{ topic_url }}">{{ topic_title }}</a>
+{% endblocktrans %}

@@ -1,0 +1,17 @@
+{% extends "bases/base.html" %}
+{% load i18n %}
+
+{% block title %}404{% endblock %}
+
+{% block content %}
+<div class="container main-container">
+	<div class="center-block error-block">
+		<div class="error-code text-center">404</div>
+		<div class="error-msg text-center">{% trans 'SORRY - PAGE NOT FOUND!' %}</div>
+		<p class="text-center">
+			The page you are looking for was moved, removed, renamed or might never existed. 
+			You stumbled upon a broken link :(
+		</p>
+	</div>
+</div>
+{% endblock %}

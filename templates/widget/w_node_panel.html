@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<div class="panel panel-default">
+	<div class="panel-heading">{% trans 'node navigation' %}</div>
+	<table class="node-table table">
+		<tbody>
+			{% for s in sections %}
+			<tr>
+				<th class="text-right">{{ s.name }}</th>
+				<td>
+					<div class="list-inline">
+						{% for n in s.nodes %}
+						<li>
+							<a class="niu-link" href="{% url 'node_view' n.id %}">{{ n.name }}</a>
+						</li>
+						{% endfor %}
+					</div>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>

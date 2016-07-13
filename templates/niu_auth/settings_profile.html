@@ -1,0 +1,71 @@
+{% extends "bases/base_2cols.html" %}
+{% load i18n %}
+{% load bootstrapcss %}
+{% load staticfiles %}
+
+{% block left_side %}
+<div class="panel panel-default">
+	<div class="panel-heading">{% trans "Public profile" %}</div>
+	<div class="panel-body">
+		<form action="{% url 'settings_profile' %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="form-group">
+				{{ form.avatar.errors }}
+				{{ form.avatar.label_tag }}
+				<div>
+					<img alt="avatar" class="pull-right avatar-m" src="{% if avatar %}{{ avatar.avatar_m.url }}{% else %}{% static 'image/niuren.svg' %}{% endif %}">
+					{{ form.avatar }}
+					{% if form.avatar.help_text %}
+					<p class="help-block">{{ form.avatar.help_text|safe }}</p>
+					{% endif %}
+				</div>
+			</div>
+			<div class="form-group">
+				{{ form.display_name.errors }}
+				{{ form.display_name.label_tag }}
+				{{ form.display_name | addclass:'form-control' }}
+			</div>
+			<div class="form-group">
+				{{ form.description.errors }}
+				{{ form.description.label_tag }}
+				{{ form.description | addclass:'form-control' }}
+			</div>
+			<div class="form-group">
+				{{ form.website.errors }}
+				{{ form.website.label_tag }}
+				{{ form.website | addclass:'form-control' }}
+			</div>
+			<div class="form-group">
+				{{ form.company.errors }}
+				{{ form.company.label_tag }}
+				{{ form.company | addclass:'form-control' }}
+			</div>
+			<div class="form-group">
+				{{ form.email.errors }}
+				{{ form.email.label_tag }}
+				{{ form.email | addclass:'form-control' }}
+			</div>
+			<div class="form-group">
+				{{ form.location.errors }}
+				{{ form.location.label_tag }}
+				{{ form.location | addclass:'form-control' }}
+			</div>
+			<div class="form-group">
+				{{ form.github.errors }}
+				{{ form.github.label_tag }}
+				{{ form.github | addclass:'form-control' }}
+			</div>
+			<div class="form-group">
+				{{ form.gitlab.errors }}
+				{{ form.gitlab.label_tag }}
+				{{ form.gitlab | addclass:'form-control' }}
+			</div>
+			<button type="submit" class="btn btn-primary btn-default">{% trans "Update profile" %}</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block right_side %}
+{% include 'widget/w_settings_menu.html' with active_profile=True %}
+{% endblock %}

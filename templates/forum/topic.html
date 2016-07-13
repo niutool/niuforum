@@ -1,0 +1,163 @@
+{% extends "forum/base.html" %}
+{% load i18n %}
+{% load bootstrapcss %}
+{% load staticfiles %}
+{% load timeago %}
+
+{% block description %}{{ topic.abstract }}{% endblock %}
+{% block title %}{{ topic.title }}{% endblock %}
+
+{% block left_side %}
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="topic-head">
+			<div class="topic-title">
+				{{ topic.title }}
+			</div>
+			<div class="pub-info split-info">
+				<span>
+					<a class="node-tag" href="{% url 'node_view' topic.node.id %}">{{ topic.node.name }}</a>
+				</span>
+				<span>
+					<a class="user" href="{% url 'user_profile' user_id=topic.author.username %}">{{ topic.author.username }}</a>{% trans " posted " %}{{ topic.date_created | naturaltime }}
+				</span>
+				<span>{% trans "viewed " %} {{ topic.viewed }}</span>
+			</div>
+		</div>
+		<article class="markdown">{{ topic.content | safe}}</article>
+	</div>
+	<div class="panel-footer topic-footer">
+		<div class="list-inline">
+			<li>
+				<a id="like" {% if ilike %} class="niu-link active" data-like="true"{% else %} class="niu-link" data-like="false"{% endif %} href="{% url 'like_topic_view' topic.id %}">
+					<i class="fa fa-heart fa-fw" aria-hidden="true"></i>&nbsp;{% trans 'like' %}
+				</a>
+			</li>
+			{% if request.user == topic.author %}
+			<li>
+				<a class="niu-link" href="{% url 'update_topic_view' topic.id %}">
+					<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>&nbsp;{% trans 'edit' %}
+				</a>
+			</li>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+{% if replies %}
+<div class="panel panel-default">
+	<div class="panel-heading">
+		{% trans 'replies' %}
+	</div>
+	<ul class="list-group">
+		{% for r in replies %}
+		<li class="list-group-item clearfix">
+			<div class="topic-author pull-left">
+				<a href="{% url 'user_profile' user_id=r.author.username %}">
+					{% if r.author.profile.avatar %}
+					<img alt="avatar" class="avatar-m" src="{{ r.author.profile.avatar.avatar_m.url }}">
+					{% else %}
+					<img alt="avatar" class="avatar-m" src="{% static 'image/niuren.svg' %}">
+					{% endif %}
+				</a>
+			</div>
+			<div class="reply-info">
+				<div class="reply-head">
+					<div class="pull-right">
+						<a class="niu-link btn-reply" data-user="{{ r.author.username }}" href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
+					</div>
+					<div class="pub-info split-info">
+						<span>
+							<a class="reply-seq" name="r{{ forloop.counter0 | add:replies.start_index }}" href="#r{{ forloop.counter0 | add:replies.start_index }}">#{{ forloop.counter0 | add:replies.start_index }}</a>
+						</span>
+						<span>
+							<a class="user niu-link" href="{% url 'user_profile' user_id=r.author.username %}">
+								{{ r.author.username }}
+							</a>
+							{% trans " replied " %}
+							{{ r.date_created | naturaltime }}
+						</span>
+					</div>
+				</div>
+				<div class="markdown">
+					{{ r.content | safe }}
+				</div>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
+
+	{% if replies.has_other_pages %}
+	<div class="topic-li-footer panel-body clearfix">
+		<ul class="pagination pull-right">
+			{% if replies.has_previous %}
+			<li><a href="?page={{ replies.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+			{% else %}
+			<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+			{% endif %}
+
+			{% for page in page_list %}
+			{% if page == replies.number %}
+			<li class="active"><a href="">{{ page }}</a></li>
+			{% else %}
+			<li><a href="?page={{ page }}">{{ page }}</a></li>
+			{% endif %}
+			{% endfor %}
+
+			{% if replies.has_next %}
+			<li><a href="?page={{ replies.next_page_number }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+			{% else %}
+			<li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+			{% endif %}
+		</ul>
+	</div>
+	{% endif %}
+</div>
+{% else %}
+<div class="empty-box">
+	<div class="text-center no-reply"><i class="fa fa-comment-o fa-fw" aria-hidden="true"></i>&nbsp;{% trans "Be the first to comment." %}</div>
+</div>
+{% endif %}
+
+{% if user.is_authenticated %}
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form action="{% url 'reply_topic_view' topic.id %}" method="post">
+			{% if form.non_field_errors or form.content.errors %}
+			<div class="alert alert-danger" role="alert">
+				<div>{{ form.non_field_errors }}</div>
+				<div>{{ form.content.errors }}</div>
+			</div>
+			{% endif %}
+			{% csrf_token %}
+			<div class="form-group">
+				{% include 'widget/w_md_editor.html' with textarea=form.content %}
+			</div>
+			<button type="submit" class="btn btn-primary pull-right">Submit</button>
+		</form>
+	</div>
+</div>
+{% else %}
+<div class="panel panel-default">
+	<div class="panel-body reply-login text-center">
+		<a class="niu-link" href="{% url 'account_login' %}"><i class="fa fa-comment-o fa-fw" aria-hidden="true"></i>&nbsp;{% trans "Write a response" %}</a>
+	</div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block right_side %}
+{% include 'widget/w_user_panel.html' with user=topic.author %}
+{% include 'widget/w_menu_panel.html' with create_topic='create_topic_view' %}
+{% endblock %}
+
+{% block tail_js %}
+<script type="text/javascript">
+	$(function() {
+		autosize($('textarea'));
+		addEditorAction();
+		$('#like').on('click', likeTopic);
+		$('a.btn-reply').on('click', {txtarea: $('#write>textarea')}, replySomeone);
+	});
+</script>
+{% endblock %}

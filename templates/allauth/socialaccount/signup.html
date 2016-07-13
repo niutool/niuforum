@@ -1,0 +1,30 @@
+{% extends "account/base_auth.html" %}
+{% load i18n %}
+{% load bootstrapcss %}
+
+{% block title %}{% trans "Signup" %}{% endblock %}
+
+{% block sub_content %}
+<div class="login-panel panel panel-default center-block">
+	<div class="panel-body">
+		<div class="login-title text-center">{% trans 'Sign Up' %}</div>
+		<p class="minor-text">{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to {{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
+
+		<form id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+			{% csrf_token %}
+			<div class="form-group {% if form.username.errors %}has-error{% endif %}">
+				{{ form.username | addclass:'form-control' }}
+				{% if form.username.errors %}<span class="help-block">{{ form.username.errors }}</span>{% endif %}
+			</div>
+			<div class="form-group {% if form.email.errors %}has-error{% endif %}">
+				{{ form.email | addclass:'form-control' }}
+				{% if form.email.errors %}<span class="help-block">{{ form.email.errors }}</span>{% endif %}
+			</div>
+			{% if redirect_field_value %}
+			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+			{% endif %}
+			<button type="submit" class="btn btn-primary btn-block">{% trans "Sign Up" %}</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "bases/base_2cols.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block right_side %}
+{% include 'widget/w_menu_panel.html' with create_topic='create_topic_view' node_id=node_id %}
+{% endblock %}

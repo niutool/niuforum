@@ -1,0 +1,33 @@
+{% load i18n %}
+<div class="md-editor">
+	<div class="md-header">
+		<div id="tab-toolbar" class="btn-toolbar pull-right" role="toolbar" aria-label="editor button toolbar">
+			<div class="btn-group btn-group-sm" role="group" aria-label="button group1">
+				<button type="button" class="btn btn-icon" data-toggle="menu" aria-controls="bold"><i class="fa fa-bold" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-icon" data-toggle="menu" aria-controls="italic"><i class="fa fa-italic" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-icon" data-toggle="menu" aria-controls="header"><i class="fa fa-header" aria-hidden="true"></i></button>
+			</div>
+			<div class="btn-group btn-group-sm" role="group" aria-label="button group2">
+				<button type="button" class="btn btn-icon" data-toggle="menu" aria-controls="quote"><i class="fa fa-quote-left" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-icon" data-toggle="menu" aria-controls="code"><i class="fa fa-code" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-icon" data-toggle="menu" aria-controls="link"><i class="fa fa-link" aria-hidden="true"></i></button>
+			</div>
+			<div class="btn-group btn-group-sm" role="group" aria-label="button group3">
+				<button type="button" class="btn btn-icon" data-toggle="menu" aria-controls="ulist"><i class="fa fa-list" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-icon" data-toggle="menu" aria-controls="olist"><i class="fa fa-list-ol" aria-hidden="true"></i></button>
+			</div>
+		</div>
+		<ul class="md-nav-tabs nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#write" aria-controls="write" role="tab" data-toggle="tab">Write</a></li>
+			<li role="presentation"><a href="#preview" aria-controls="preview" role="tab" data-toggle="tab">Preview</a></li>
+		</ul>
+	</div>
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="write">
+			{{ textarea }}
+		</div>
+		<div role="tabpanel" class="tab-pane" id="preview">
+			<div class="preview-panel"></div>
+		</div>
+	</div>
+</div>

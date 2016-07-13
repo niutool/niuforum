@@ -1,0 +1,34 @@
+.niu-nav(@color) {
+	color: @color !important;
+	border-bottom: 4px solid @color;
+	background: transparent !important;
+	padding-bottom: 11px;
+}
+
+.niu-header {
+	background-color: white;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.11);
+	border: 0px;
+}
+.niu-nav-section {
+	li {
+		a {
+			&:hover,
+			&:focus {
+				.niu-nav(@niu-link-hover-color);
+			}
+		}
+	}
+	li.active {
+		a {
+			.niu-nav(@niu-link-hover-color);
+		}
+	}
+}
+a.noti-active {
+	color: @niu-primary !important;
+	&:hover,
+	&:focus {
+		color: fade(@niu-primary, 80%) !important;
+	}
+}

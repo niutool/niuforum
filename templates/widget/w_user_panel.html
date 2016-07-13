@@ -1,0 +1,55 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<div class="panel panel-default">
+	<ul class="list-group">
+		<li class="list-group-item">
+			<div class="clearfix">
+				<div class="user-avatar pull-left">
+					<a href="{% url 'user_profile' user_id=user.username %}">
+						{% if user.profile.avatar %}
+						<img alt="avatar" class="avatar-l" src="{{ user.profile.avatar.avatar_l.url }}">
+						{% else %}
+						<img alt="avatar" class="avatar-l" src="{% static 'image/niuren.svg' %}">
+						{% endif %}
+					</a>
+				</div>
+				<div class="user-names">
+					<a class="niu-link" href="{% url 'user_profile' user_id=user.username %}">{{ user.username }}</a>
+					{% if user.profile.display_name %}
+					<div class="user-name">{{ user.profile.display_name }}</div>
+					{% else %}
+					<div class="user-name minor-text">{% trans 'No Name' %}</div>
+					{% endif %}
+				</div>
+			</div>
+			{% if user.profile.description %}
+			<div class="user-bio">{{ user.profile.description }}</div>
+			{% endif %}
+		</li>
+		<li class="list-group-item">
+			<ul class="list-unstyled user-detail">
+				<li><i class="fa fa-trophy fa-fw" aria-hidden="true"></i>&nbsp; {{ user.profile.reputation }}</li>
+				{% if user.profile.company %}
+				<li><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; {{ user.profile.company }}</li>
+				{% endif %}
+				{% if user.profile.location %}
+				<li><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>&nbsp; {{ user.profile.location }}</li>
+				{% endif %}
+				{% if user.profile.email %}
+				<li><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>&nbsp; {{ user.profile.email }}</li>
+				{% endif %}
+				{% if user.profile.website %}
+				<li><i class="fa fa-link fa-fw" aria-hidden="true"></i>&nbsp; <a href="{{ user.profile.website }}">{{ user.profile.website }}</a></li>
+				{% endif %}
+				{% if user.profile.github %}
+				<li><i class="fa fa-github fa-fw" aria-hidden="true"></i>&nbsp; <a href="{{ user.profile.github }}">{{ user.profile.github }}</a></li>
+				{% endif %}
+				{% if user.profile.gitlab %}
+				<li><i class="fa fa-gitlab fa-fw" aria-hidden="true"></i>&nbsp; <a href="{{ user.profile.gitlab }}">{{ user.profile.gitlab }}</a></li>
+				{% endif %}
+				<li><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp; {% trans 'Joined on ' %}{{ user.date_joined | date }}</li>
+			</ul>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load staticfiles %}
+<div>
+	<div class="tool-li-icon pull-left">
+		<a href="{% url 'tool_view' tool_id=tool.id %}">
+			{% if tool.revision.icon %}
+			<img alt="icon" class="icon-m" src="{{ tool.revision.icon.icon_m.url }}">
+			{% else %}
+			<img alt="icon" class="icon-m" src="{% static 'image/niutool.svg' %}">
+			{% endif %}
+		</a>
+	</div>
+	<div class="tool-li">
+		<div class="name"><a href="{% url 'tool_view' tool_id=tool.id %}">{{ tool.revision.name }}</a></div>
+		<div class="description">{{ tool.revision.description }}</div>
+	</div>
+</div>

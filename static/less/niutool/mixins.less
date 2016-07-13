@@ -1,0 +1,29 @@
+.niu-link(@color, @hover-color) {
+	color: @color;
+	text-decoration: none;
+	&:hover {
+		color: @hover-color;
+	}
+}
+.link-btn(@color, @bg) {
+	background-color: @bg;
+	border-radius: 20px;
+	color: @color;
+	padding: 5px 12px;
+	&:hover,
+	&:focus {
+		color: @color;
+		background-color: fade(@bg, 80%);
+	}
+}
+.menu-btn(@color, @bg) {
+	background-color: @bg;
+	color: @color;
+	margin-left: 10px;
+	margin-right: 10px;
+	&:hover,
+	&:focus {
+		color: @color;
+		background-color: fade(@bg, 80%);
+	}
+}

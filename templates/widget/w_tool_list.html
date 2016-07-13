@@ -1,0 +1,56 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load timeago %}
+
+{% if tools %}
+<ul class="list-group">
+	{% for t in tools %}
+	<li class="list-group-item clearfix">
+		<div class="tool-li-star pull-right"><i class="fa fa-star fa-fw" aria-hidden="true"></i>&nbsp;{{ t.starred.count }}</div>
+		<div class="tool-li-icon pull-left">
+			{% if t.revision.icon %}
+			<img alt="icon" class="icon-m" src="{{ t.revision.icon.icon_m.url }}">
+			{% else %}
+			<img alt="icon" class="icon-m" src="{% static 'image/niutool.svg' %}">
+			{% endif %}
+		</div>
+		<div class="tool-li">
+			<div class="name"><a href="{% url 'tool_view' tool_id=t.id %}">{{ t.revision.name }}</a></div>
+			<div class="description">{{ t.revision.description }}</div>
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+{% else %}
+<ul class="list-group">
+	<li class="list-group-item">
+		{% trans 'No tools were found here!' %}
+	</li>
+</ul>
+{% endif %}
+
+{% if tools.has_other_pages %}
+<div class="tool-li-footer panel-body clearfix">
+	<ul class="pagination pull-right">
+		{% if tools.has_previous %}
+		<li><a href="?page={{ tools.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+		{% else %}
+		<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+		{% endif %}
+
+		{% for page in page_list %}
+		{% if page == tools.number %}
+		<li class="active"><a href="">{{ page }}</a></li>
+		{% else %}
+		<li><a href="?page={{ page }}">{{ page }}</a></li>
+		{% endif %}
+		{% endfor %}
+
+		{% if tools.has_next %}
+		<li><a href="?page={{ tools.next_page_number }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+		{% else %}
+		<li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+		{% endif %}
+	</ul>
+</div>
+{% endif %}

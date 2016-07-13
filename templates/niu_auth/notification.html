@@ -1,0 +1,52 @@
+{% extends "era_auth/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load timeago %}
+
+{% block left_side %}
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<a href="{% url 'clear_notification_view' %}" class="niu-link pull-right"><i class="fa fa-trash fa-fw" aria-hidden="true"></i>&nbsp;{% trans 'clear all' %}</a>
+		{% trans "Notifications" %}
+	</div>
+	<ul class="list-group">
+		{% if noti_list %}
+		{% for n in noti_list %}
+		<li class="list-group-item">
+			<div class="pull-right"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp;{{ n.date | naturaltime }}</div>
+			<div>{{ n.detail | safe }}</div>
+		</li>
+		{% endfor %}
+		{% else %}
+		<li class="list-group-item">
+			{% trans 'no notification' %}
+		</li>
+		{% endif %}
+	</ul>
+	{% if noti_list.has_other_pages %}
+	<div class="topic-li-footer panel-body clearfix">
+		<ul class="pagination pull-right">
+			{% if noti_list.has_previous %}
+			<li><a href="?page={{ noti_list.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+			{% else %}
+			<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+			{% endif %}
+
+			{% for page in page_list %}
+			{% if page == noti_list.number %}
+			<li class="active"><a href="">{{ page }}</a></li>
+			{% else %}
+			<li><a href="?page={{ page }}">{{ page }}</a></li>
+			{% endif %}
+			{% endfor %}
+
+			{% if noti_list.has_next %}
+			<li><a href="?page={{ noti_list.next_page_number }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+			{% else %}
+			<li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+			{% endif %}
+		</ul>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

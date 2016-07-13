@@ -1,0 +1,75 @@
+{% extends "account/base_auth_2cols.html" %}
+{% load i18n %}
+{% load bootstrapcss %}
+
+{% block head_title %}{% trans "Account" %}{% endblock %}
+
+{% block left_side %}
+<div class="panel panel-default">
+  <div class="panel-heading">{% trans "E-mail Addresses" %}</div>
+  <div class="panel-body">
+    {% if user.emailaddress_set.all %}
+    <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
+
+    <form action="{% url 'account_email' %}" method="post">
+      {% csrf_token %}
+      {% for emailaddress in user.emailaddress_set.all %}
+      <div class="radio">
+        <label for="email_radio_{{forloop.counter}}">
+          <input id="email_radio_{{forloop.counter}}" type="radio" name="email" {% if emailaddress.primary or user.emailaddress_set.count == 1 %}checked="checked"{%endif %} value="{{emailaddress.email}}"/>
+          {{ emailaddress.email }}
+          {% if emailaddress.verified %}
+          <span class="text-success">{% trans "Verified" %}</span>
+          {% else %}
+          <span class="text-danger">{% trans "Unverified" %}</span>
+          {% endif %}
+          {% if emailaddress.primary %}<span class="text-primary">{% trans "Primary" %}</span>{% endif %}
+        </label>
+      </div>
+      {% endfor %}
+      <div>
+        <button class="btn btn-primary" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
+        <button class="btn btn-info" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
+        <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#removeEmail" >{% trans 'Remove' %}</button>
+      </div>
+      <div class="modal fade" id="removeEmail" tabindex="-1" role="dialog" aria-labelledby="removeEmailLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="removeEmailLabel">{% trans "Warning" %}</h4>
+            </div>
+            <div class="modal-body">
+              {% trans 'Do you really want to remove the selected e-mail address?' %}"
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button class="btn btn-primary" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    {% else %}
+    <p><strong>{% trans 'Warning:'%}</strong> {% trans "You currently do not have any e-mail address set up. You should really add an e-mail address so you can receive notifications, reset your password, etc." %}</p>
+    {% endif %}
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">{% trans "Add E-mail Address" %}</div>
+  <div class="panel-body">
+    <form method="post" action="{% url 'account_email' %}">
+      {% csrf_token %}
+      <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+        {{ form.email | addclass:'form-control' }}
+        {% if form.email.errors %}<span class="help-block">{{ form.email.errors }}</span>{% endif %}
+      </div>
+      <button class="btn btn-primary" name="action_add" type="submit">{% trans "Add E-mail" %}</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block right_side %}
+{% include 'widget/w_settings_menu.html' with active_email=True %}
+{% endblock %}

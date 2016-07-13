@@ -1,0 +1,9 @@
+{% load i18n %}
+<div class="panel panel-default">
+	<div class="panel-heading">{% trans "Settings" %}</div>
+	<div class="list-group">
+		<a href="{% url 'settings_profile' %}" class="list-group-item {% if active_profile %}active{% endif %}">{% trans "Profile" %}</a>
+		<a href="{% url 'account_set_password' %}" class="list-group-item {% if active_password %}active{% endif %}">{% trans "Password" %}</a>
+		<a href="{% url 'account_email' %}" class="list-group-item {% if active_email %}active{% endif %}">{% trans "Account" %}</a>
+	</div>
+</div>

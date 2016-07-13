@@ -1,0 +1,82 @@
+@high-bg: #000000;
+@high-color: #cccccc;
+@hll-bg: #222222;
+@c-color: #0000ff;
+@cs-color: #cd0000;
+@gr-color: #FF0000;
+@k-color: #cdcd00;
+
+.highlight {
+	>pre {
+		background: @high-bg;
+		color: @high-color;
+	}
+	.hll {
+		background-color: @hll-bg;
+	}
+	.c, .ch, .cm, .cp, .cpf, .c1,  {
+		color: @c-color;
+	}
+	.gh, .gp {
+		color: @c-color;
+		font-weight: bold;
+	}
+	.err {
+		color: @high-color;
+		border: 1px solid @gr-color;
+	}
+	.esc, .g, .l, .n, .x, .p, .ld, .na,
+	.no, .nd, .ni, .nf, .nl,
+	.nn, .nx, .py, .nt, .w {
+		color: @high-color;
+	}
+	.ge {
+		color: @high-color;
+		font-style: italic;
+	}
+	.gs {
+		color: @high-color;
+		font-style: bold;
+	}
+	.cs {
+		color: @cs-color;
+		font-weight: bold;
+	}
+	.gd, .s, .sb, .sc, .sd, .s2, .se, .sh,
+	.si, .sx, .sr, .s1, .ss {
+		color: @cs-color;
+	}
+	.gr {
+		color: @gr-color;
+	}
+	.k, .kc, .kp, .kr, .ow {
+		color: @k-color;
+	}
+	.o {
+		color: #3399cc;
+	}
+	.gi, .kd, .kt {
+		color: #00cd00;
+	}
+	.go {
+		color: #888888;
+	}
+	.gu {
+		color: #800080;
+		font-weight: bold;
+	}
+	.gt {
+		color: #0044DD;
+	}
+	.ne {
+		color: #666699;
+		font-weight: bold
+	}
+	.kn, .m, .nb, .mb, .mf, .mh,
+	.mi, .mo, .bp, .il {
+		color: #cd00cd;
+	}
+	.nc, .nv, .vc, .vg, .vi {
+		color: #00cdcd;
+	}
+}

@@ -1,0 +1,677 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: templates/allauth/account/messages/email_confirmed.txt:2
+#: templates/allauth/account/messages/logged_in.txt:4
+#: templates/allauth/account/messages/logged_out.txt:2
+msgid ""
+msgstr ""
+"Project-Id-Version: niuforum\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-14 06:57+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: niutool <niutool@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forum/forms.py:6 forum/forms.py:7
+msgid "Topic title"
+msgstr "标题"
+
+#: forum/forms.py:8
+msgid "title can't be blank"
+msgstr "标题不能为空"
+
+#: forum/forms.py:9
+msgid "The title should be no longer than 120 characters"
+msgstr "标题长度不能超过120个字符"
+
+#: forum/forms.py:10
+msgid "Say something"
+msgstr "话题内容"
+
+#: forum/forms.py:11 forum/forms.py:17
+msgid "content can't be blank"
+msgstr "内容不能为空"
+
+#: forum/forms.py:12
+msgid "---- select a node ----"
+msgstr "---- 选择一个节点 ----"
+
+#: forum/forms.py:13
+msgid "node can't be blank"
+msgstr "节点不能为空"
+
+#: forum/forms.py:13
+msgid "invalid choice"
+msgstr "无效节点"
+
+#: forum/forms.py:16
+msgid "Leave a comment"
+msgstr "发表你的评论"
+
+#. Translators: please keep a non-breaking space (U+00A0)
+#. between count and time unit.
+#: forum/templatetags/timeago.py:25
+#, python-format
+msgid "a day ago"
+msgid_plural "%(count)s days ago"
+msgstr[0] "1 天前"
+msgstr[1] "%(count)s 天前"
+
+#: forum/templatetags/timeago.py:28 forum/templatetags/timeago.py:56
+msgid "now"
+msgstr "刚刚"
+
+#. Translators: please keep a non-breaking space (U+00A0)
+#. between count and time unit.
+#: forum/templatetags/timeago.py:33
+#, python-format
+msgid "a second ago"
+msgid_plural "%(count)s seconds ago"
+msgstr[0] "1 秒前"
+msgstr[1] "%(count)s 秒前"
+
+#. Translators: please keep a non-breaking space (U+00A0)
+#. between count and time unit.
+#: forum/templatetags/timeago.py:40
+#, python-format
+msgid "a minute ago"
+msgid_plural "%(count)s minutes ago"
+msgstr[0] "1 分钟前"
+msgstr[1] "%(count)s 分钟前"
+
+#. Translators: please keep a non-breaking space (U+00A0)
+#. between count and time unit.
+#: forum/templatetags/timeago.py:47
+#, python-format
+msgid "an hour ago"
+msgid_plural "%(count)s hours ago"
+msgstr[0] "1 小时前"
+msgstr[1] "%(count)s 小时前"
+
+#: forum/templatetags/timeago.py:53
+#, python-format
+msgctxt "naturaltime"
+msgid "%(delta)s from now"
+msgstr "%(delta)s 后"
+
+#. Translators: please keep a non-breaking space (U+00A0)
+#. between count and time unit.
+#: forum/templatetags/timeago.py:61
+#, python-format
+msgid "a second from now"
+msgid_plural "%(count)s seconds from now"
+msgstr[0] "1 秒后"
+msgstr[1] "%(count)s 秒后"
+
+#. Translators: please keep a non-breaking space (U+00A0)
+#. between count and time unit.
+#: forum/templatetags/timeago.py:68
+#, python-format
+msgid "a minute from now"
+msgid_plural "%(count)s minutes from now"
+msgstr[0] "1 分钟后"
+msgstr[1] "%(count)s 分钟后"
+
+#. Translators: please keep a non-breaking space (U+00A0)
+#. between count and time unit.
+#: forum/templatetags/timeago.py:75
+#, python-format
+msgid "an hour from now"
+msgid_plural "%(count)s hours from now"
+msgstr[0] "1 小时后"
+msgstr[1] "%(count)s 小时后"
+
+#: forum/views.py:362
+msgid "the node dose not exist"
+msgstr "节点不存在"
+
+#: forum/views.py:364 forum/views.py:401
+msgid "unknown error"
+msgstr "未知错误"
+
+#: forum/views.py:399
+msgid "the topic dose not exist"
+msgstr "话题不存在"
+
+#: niuauth/forms.py:5
+msgid "Select a new picture"
+msgstr "选择一张新图片"
+
+#: niuauth/forms.py:6
+msgid "The maximum image size you can upload is 2M"
+msgstr "上传图片最大不超过2M"
+
+#: niuauth/forms.py:7
+msgid "Name"
+msgstr "名字"
+
+#: niuauth/forms.py:8
+msgid "Tell a little about yourself"
+msgstr "简单地介绍一下你自己"
+
+#: niuauth/forms.py:9
+msgid "Bio"
+msgstr "自我介绍"
+
+#: niuauth/forms.py:10
+msgid "Website"
+msgstr "网站"
+
+#: niuauth/forms.py:11
+msgid "Company"
+msgstr "公司"
+
+#: niuauth/forms.py:12
+msgid "E-mail address"
+msgstr "E-mail地址"
+
+#: niuauth/forms.py:13
+msgid "Location"
+msgstr "所在地"
+
+#: niuauth/forms.py:14
+msgid "Github"
+msgstr "GitHub"
+
+#: niuauth/forms.py:15
+msgid "Gitlab"
+msgstr "Gitlab"
+
+#: templates/400.html:10
+msgid "SORRY - Bad request!"
+msgstr ""
+
+#: templates/403.html:10
+msgid "SORRY - Forbidden!"
+msgstr ""
+
+#: templates/404.html:10
+msgid "SORRY - PAGE NOT FOUND!"
+msgstr ""
+
+#: templates/500.html:10
+msgid "SORRY - Internal Server Error!"
+msgstr ""
+
+#: templates/allauth/account/account_inactive.html:5
+#: templates/allauth/account/account_inactive.html:10
+msgid "Account Inactive"
+msgstr "账号未激活"
+
+#: templates/allauth/account/account_inactive.html:11
+msgid "This account is inactive."
+msgstr "此账号未激活"
+
+#: templates/allauth/account/email.html:5
+#: templates/widget/w_settings_menu.html:7
+msgid "Account"
+msgstr "账号"
+
+#: templates/allauth/account/email.html:9
+msgid "E-mail Addresses"
+msgstr "E-mail 地址"
+
+#: templates/allauth/account/email.html:12
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "以下 e-mail 地址已关联到您的帐号："
+
+#: templates/allauth/account/email.html:22
+msgid "Verified"
+msgstr "已验证"
+
+#: templates/allauth/account/email.html:24
+msgid "Unverified"
+msgstr "未验证"
+
+#: templates/allauth/account/email.html:26
+msgid "Primary"
+msgstr "首选 e-mail"
+
+#: templates/allauth/account/email.html:31
+msgid "Make Primary"
+msgstr "设置首选 e-mail"
+
+#: templates/allauth/account/email.html:32
+msgid "Re-send Verification"
+msgstr "重发验证 e-mail"
+
+#: templates/allauth/account/email.html:33
+#: templates/allauth/account/email.html:47
+msgid "Remove"
+msgstr "移除"
+
+#: templates/allauth/account/email.html:40
+msgid "Warning"
+msgstr "警告"
+
+#: templates/allauth/account/email.html:43
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "您真的想移除选定的 e-mail 地址吗？"
+
+#: templates/allauth/account/email.html:54
+msgid "Warning:"
+msgstr "警告："
+
+#: templates/allauth/account/email.html:54
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"您当前未设置任何邮件地址。您需要设置一个邮件地址，以便接收通知，重置密码等。"
+
+#: templates/allauth/account/email.html:59
+msgid "Add E-mail Address"
+msgstr "添加 E-mail 地址"
+
+#: templates/allauth/account/email.html:67
+msgid "Add E-mail"
+msgstr "添加 E-mail"
+
+#: templates/allauth/account/email/email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"\n"
+"Hi %(user_display)s,\n"
+"\n"
+"Thanks for joining the %(site_name)s!\n"
+"Click the following link to confirm your email and connect it to your "
+"account:\n"
+"%(activate_url)s\n"
+"\n"
+"If the above link is not clickable, try copying and pasting it into the "
+"address bar of your web browser.\n"
+"\n"
+msgstr ""
+"\n"
+"你好 %(user_display)s,\n"
+"\n"
+"非常感谢你加入 %(site_name)s!\n"
+"请点击下方的链接来确认你的邮件地址，并使之与您的账户关联：\n"
+"%(activate_url)s\n"
+"\n"
+"如果上方的链接不能直接点击，请将上面的地址复制到您的浏览器中打开。\n"
+"\n"
+
+#: templates/allauth/account/email/email_confirmation_subject.txt:3
+msgid "Please Confirm Your E-mail Address"
+msgstr "确认 E-mail 地址"
+
+#: templates/allauth/account/email_confirm.html:6
+#: templates/allauth/account/email_confirm.html:11
+msgid "Confirm E-mail Address"
+msgstr "确认 E-mail 地址"
+
+#: templates/allauth/account/email_confirm.html:14
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+"请确认<a href=\"mailto:%(email)s\">%(email)s</a>是否是用户 %(user_display)s的"
+"e-mail地址。"
+
+#: templates/allauth/account/email_confirm.html:17
+msgid "Confirm"
+msgstr "确认"
+
+#: templates/allauth/account/email_confirm.html:21
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+"e-mail验证链接失效或无效。请点击 <a href=\"%(email_url)s\">发起新的e-mail验证"
+"请求。"
+
+#: templates/allauth/account/login.html:6
+#: templates/allauth/account/login.html:11
+msgid "Login In"
+msgstr "登录"
+
+#: templates/allauth/account/login.html:15
+msgid " Sign in with GitHub"
+msgstr "由GitHub帐号登录"
+
+#: templates/allauth/account/login.html:20
+msgid "or"
+msgstr "或者"
+
+#: templates/allauth/account/login.html:35
+msgid " Remember Me"
+msgstr " 记住我"
+
+#: templates/allauth/account/login.html:47
+msgid "Log In"
+msgstr "登录"
+
+#: templates/allauth/account/login.html:50
+msgid "Forgot Password?"
+msgstr "忘记密码了？"
+
+#: templates/allauth/account/login.html:56
+#, python-format
+msgid "Don't have an account? <a href=\"%(signup_url)s\">Sign Up</a>."
+msgstr "还没用账户？<a href=\"%(signup_url)s\">注册</a>"
+
+#: templates/allauth/account/logout.html:4
+#: templates/allauth/account/logout.html:9
+#: templates/allauth/account/logout.html:17
+msgid "Log Out"
+msgstr "退出"
+
+#: templates/allauth/account/logout.html:10
+msgid "Are you sure you want to log out?"
+msgstr "你确定要退出吗？"
+
+#: templates/allauth/account/password_change.html:5
+#: templates/allauth/account/password_change.html:9
+#: templates/allauth/account/password_change.html:33
+#: templates/allauth/account/password_reset_from_key.html:4
+#: templates/allauth/account/password_reset_from_key.html:9
+#: templates/allauth/account/password_reset_from_key.html:18
+#: templates/allauth/account/password_reset_from_key_done.html:4
+#: templates/allauth/account/password_reset_from_key_done.html:9
+msgid "Change Password"
+msgstr "更改密码"
+
+#: templates/allauth/account/password_reset.html:6
+#: templates/allauth/account/password_reset.html:11
+#: templates/allauth/account/password_reset_done.html:5
+#: templates/allauth/account/password_reset_done.html:10
+msgid "Password Reset"
+msgstr "重置密码"
+
+#: templates/allauth/account/password_reset.html:12
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+"忘记密码？在下面输入您的e-mail地址，我们将给您发送一封e-mail，以便重置密码。"
+
+#: templates/allauth/account/password_reset.html:25
+msgid "Reset My Password"
+msgstr "重置我的密码"
+
+#: templates/allauth/account/password_reset.html:31
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr "如在重置密码时遇到问题，请与我们联系。"
+
+#: templates/allauth/account/password_reset_done.html:11
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr "我们已给您发了一封e-mail，如您在几分钟后仍没收到，请与我们联系。"
+
+#: templates/allauth/account/password_reset_from_key.html:9
+msgid "Bad Token"
+msgstr ""
+
+#: templates/allauth/account/password_reset_from_key.html:12
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"密码重置链接无效，可能该链接已被使用。请重新申请<a href="
+"\"%(passwd_reset_url)s\">链接重置</a>。"
+
+#: templates/allauth/account/password_reset_from_key.html:21
+#: templates/allauth/account/password_reset_from_key_done.html:10
+msgid "Your password is now changed."
+msgstr "您的密码现已被修改。"
+
+#: templates/allauth/account/password_set.html:5
+#: templates/allauth/account/password_set.html:9
+#: templates/allauth/account/password_set.html:26
+msgid "Set Password"
+msgstr "设置密码"
+
+#: templates/allauth/account/signup.html:5
+#: templates/allauth/socialaccount/signup.html:5
+msgid "Signup"
+msgstr "注册"
+
+#: templates/allauth/account/signup.html:10
+#: templates/allauth/account/signup.html:38
+#: templates/allauth/socialaccount/signup.html:10
+#: templates/allauth/socialaccount/signup.html:26
+msgid "Sign Up"
+msgstr "注册"
+
+#: templates/allauth/account/signup.html:41
+msgid "By signing up, you agree to the <a href=\"#\">Terms of Service</a>"
+msgstr "进行注册，就代表你同意<a href=\"#\">服务条款</a>"
+
+#: templates/allauth/account/signup.html:47
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">Log In</a>."
+msgstr "已有账户？请<a href=\"%(login_url)s\">登录</a>"
+
+#: templates/allauth/account/verification_sent.html:4
+#: templates/allauth/account/verification_sent.html:9
+#: templates/allauth/account/verified_email_required.html:4
+#: templates/allauth/account/verified_email_required.html:9
+msgid "Verify Your E-mail Address"
+msgstr "验证您的 E-mail 地址。"
+
+#: templates/allauth/account/verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"我们已向您发了一封验证e-mail。点击e-mail中的链接完成注册流程。如果您在几分钟"
+"后仍未收到邮件，请与我们联系。"
+
+#: templates/allauth/account/verified_email_required.html:14
+msgid ""
+"This part of the site requires us to verify that\n"
+"\t\t\tyou are who you claim to be. For this purpose, we require that you\n"
+"\t\t\tverify ownership of your e-mail address. "
+msgstr ""
+"网站的这部分功能要求验证您的真实身份。\n"
+"为此，我们需要您确认您是此账号e-mail地址的所有者。"
+
+#: templates/allauth/account/verified_email_required.html:20
+msgid ""
+"We have sent an e-mail to you for\n"
+"\t\t\tverification. Please click on the link inside this e-mail. Please\n"
+"\t\t\tcontact us if you do not receive it within a few minutes."
+msgstr ""
+"我们已经给您发送了一封e-mail验证邮件。\n"
+"请点击e-mail中的链接。若您在几分钟后仍未收到邮件，请联系我们。"
+
+#: templates/allauth/account/verified_email_required.html:26
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+"<strong>注意:</strong> 您仍然能够<a href=\"%(email_url)s\">修改您的e-mail地"
+"址 </a>."
+
+#: templates/allauth/socialaccount/signup.html:11
+#, python-format
+msgid ""
+"You are about to use your %(provider_name)s account to login to "
+"%(site_name)s. As a final step, please complete the following form:"
+msgstr ""
+"您将使用您的%(provider_name)s账号登录\n"
+"%(site_name)s。作为最后一步，请完成以下表单："
+
+#: templates/bases/base.html:50
+msgid "My home"
+msgstr "我的主页"
+
+#: templates/bases/base.html:51 templates/widget/w_settings_menu.html:3
+msgid "Settings"
+msgstr "设置"
+
+#: templates/bases/base.html:53
+msgid "Logout"
+msgstr "退出"
+
+#: templates/forum/create_topic.html:6 templates/forum/create_topic.html:11
+msgid "publish new topic"
+msgstr "新建主题"
+
+#: templates/forum/create_topic.html:17
+msgid "not have enough credits to post a new topic"
+msgstr "没有足够的积分来发表一个话题"
+
+#: templates/forum/node.html:32
+msgid "Watch"
+msgstr "关注"
+
+#: templates/forum/notification/create_topic_notification.html:4
+#, python-format
+msgid ""
+"\n"
+"<a class=\"niu-link\" href=\"%(author_url)s\">%(author_name)s</a> mentioned "
+"you in <a href=\"%(topic_url)s\">%(topic_title)s</a>\n"
+msgstr ""
+"\n"
+"<a class=\"niu-link\" href=\"%(author_url)s\">%(author_name)s</a> 在话题 <a "
+"href=\"%(topic_url)s\">%(topic_title)s</a> 中提到了你\n"
+
+#: templates/forum/notification/reply_notification.html:4
+#, python-format
+msgid ""
+"\n"
+"<a class=\"niu-link\" href=\"%(repiler_url)s\">%(replier_name)s</a> "
+"mentioned you in <a href=\"%(topic_url)s\">%(topic_title)s</a> comment #"
+"%(reply_count)s\n"
+msgstr ""
+"\n"
+"<a class=\"niu-link\" href=\"%(repiler_url)s\">%(replier_name)s</a> 在话题 "
+"<a href=\"%(topic_url)s\">%(topic_title)s</a> 的评论 #%(reply_count)s 中提到"
+"了你\n"
+
+#: templates/forum/topic.html:22 templates/widget/w_topic_list.html:31
+msgid " posted "
+msgstr " 发表于 "
+
+#: templates/forum/topic.html:24
+msgid "viewed "
+msgstr "阅读 "
+
+#: templates/forum/topic.html:33
+msgid "like"
+msgstr "喜欢"
+
+#: templates/forum/topic.html:39
+msgid "edit"
+msgstr "编辑"
+
+#: templates/forum/topic.html:50 templates/widget/w_profile_nav.html:3
+msgid "replies"
+msgstr "回复"
+
+#: templates/forum/topic.html:77
+msgid " replied "
+msgstr " 回复于 "
+
+#: templates/forum/topic.html:118
+msgid "Be the first to comment."
+msgstr "等你第一个来评论"
+
+#: templates/forum/topic.html:143
+msgid "Write a response"
+msgstr "发表回复"
+
+#: templates/forum/update_topic.html:6 templates/forum/update_topic.html:11
+msgid "modify topic"
+msgstr "修改话题"
+
+#: templates/niuauth/home.html:24
+msgid "no replies"
+msgstr " 编辑于 "
+
+#: templates/niuauth/notification.html:9
+msgid "clear all"
+msgstr "全部清除"
+
+#: templates/niuauth/notification.html:10
+msgid "Notifications"
+msgstr "提醒"
+
+#: templates/niuauth/notification.html:22
+msgid "no notification"
+msgstr "没有提醒"
+
+#: templates/niuauth/settings_profile.html:8
+msgid "Public profile"
+msgstr "个人公开信息"
+
+#: templates/niuauth/settings_profile.html:63
+msgid "Update profile"
+msgstr "修改信息"
+
+#: templates/niuauth/user_topic.html:25
+msgid "no topics"
+msgstr "没有主题"
+
+#: templates/widget/w_menu_panel.html:5
+msgid "New Topic"
+msgstr "新建主题"
+
+#: templates/widget/w_node_panel.html:4
+msgid "node navigation"
+msgstr "节点导航"
+
+#: templates/widget/w_profile_nav.html:4
+msgid "topics"
+msgstr "主题"
+
+#: templates/widget/w_settings_menu.html:5
+msgid "Profile"
+msgstr "个人信息"
+
+#: templates/widget/w_settings_menu.html:6
+msgid "Password"
+msgstr "密码"
+
+#: templates/widget/w_topic_filter.html:4
+msgid "sort:"
+msgstr "排序："
+
+#: templates/widget/w_topic_filter.html:5
+msgid "default"
+msgstr "默认"
+
+#: templates/widget/w_topic_filter.html:6
+msgid "star"
+msgstr "精华"
+
+#: templates/widget/w_topic_filter.html:7
+msgid "recent reply"
+msgstr "最近回复"
+
+#: templates/widget/w_topic_filter.html:8
+msgid "latest post"
+msgstr "最近发布"
+
+#: templates/widget/w_topic_list.html:34
+msgid "last replied "
+msgstr "最后回复于 "
+
+#: templates/widget/w_topic_list.html:44
+msgid "No topics were found here!"
+msgstr "没有话题，快来创建一个！"
+
+#: templates/widget/w_user_panel.html:22
+msgid "No Name"
+msgstr "无名"
+
+#: templates/widget/w_user_panel.html:51
+msgid "Joined on "
+msgstr "加入于"

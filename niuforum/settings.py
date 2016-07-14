@@ -203,7 +203,7 @@ SOCIALACCOUNT_QUERY_EMAIL = False
 SOCIALACCOUNT_EMAIL_REQUIRED = False
 SOCIALACCOUNT_AUTO_SIGNUP = False
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'NiuTool Account <noreply@niutool.com>'
 
 REP_USER_INIT = 1

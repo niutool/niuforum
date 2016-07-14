@@ -69,7 +69,7 @@ function likeTopic(event) {
 };
 function renderMarkdown(markdown) {
     $.ajax({
-        url: "/render/",
+        url: "/action/render/",
         type: "post",
         data: {csrfmiddlewaretoken : getCookie('csrftoken'),
                 md : markdown},
@@ -127,69 +127,5 @@ function replySomeone(event) {
     }
     
     txtarea.focus();
-};
-
-//////////////////////
-function starTool(event) {
-    event.preventDefault();
-    $.ajax({
-        url: $(this).attr('href'),
-        type: "post",
-        data: {csrfmiddlewaretoken : getCookie('csrftoken'),
-                star : $(this).attr('data-star')},
-
-        success : function(json){
-            if(json.code == 0) {
-                var starring = json.ret.starring;
-                var count = json.ret.count;
-                var icon = $('#star');
-                var count_span = $('#star-count');
-
-                icon.attr('data-star', starring);
-                if(starring == true) {
-                    icon.attr("class","niu-link active");
-                } else {
-                    icon.attr("class","niu-link");
-                }
-
-                count_span.text(count)
-            }
-        },
-
-        error: function(xhr, errmsg, err){
-            console.log(xhr.status + ": " + xhr.responseText); 
-        }
-    });
-};
-function watchTool(event) {
-    event.preventDefault();
-    $.ajax({
-        url: $(this).attr('href'),
-        type: "post",
-        data: {csrfmiddlewaretoken : getCookie('csrftoken'),
-                watch : $(this).attr('data-watch')},
-
-        success : function(json){
-            if(json.code == 0) {
-                var watching = json.ret.watching;
-                //var count = json.ret.count;
-                var icon = $('#watch');
-                //var count_span = $('#watch-count');
-
-                icon.attr('data-watch', watching);
-                if(watching == true) {
-                    icon.attr("class","niu-link active");
-                } else {
-                    icon.attr("class","niu-link");
-                }
-
-                //count_span.text(count)
-            }
-        },
-
-        error: function(xhr, errmsg, err){
-            console.log(xhr.status + ": " + xhr.responseText); 
-        }
-    });
 };
 

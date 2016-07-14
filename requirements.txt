@@ -1,0 +1,5 @@
+django
+django-allauth
+Pillow
+mistune
+Pygments
